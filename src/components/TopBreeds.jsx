@@ -29,7 +29,7 @@ const TopBreeds = () => {
         Top Breeds
       </h2>
 
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
         {breeds.map((b, i) => (
           <div
             key={i}

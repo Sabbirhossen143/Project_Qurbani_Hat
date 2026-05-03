@@ -12,11 +12,13 @@ import UpdateProfile from "../pages/UpdateProfile";
 import NotFound from "../pages/NotFound";
 
 import PrivateRoute from "../components/PrivateRoute";
+import Contact from "../components/Contact";
+
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,   // 👈 Navbar applied globally
+    element: <Layout />,  
     children: [
       { path: "/", element: <Home /> },
       { path: "/animals", element: <Animals /> },
@@ -41,6 +43,11 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+
+      {
+  path: "/contact",
+  element: <Contact />,
+},
 
       {
         path: "/update-profile",

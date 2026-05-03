@@ -11,7 +11,7 @@ const QurbaniTips = () => {
 ];
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-14 bg-gray-50 rounded-xl">
+    <div id="qurbanitips" className="max-w-6xl mx-auto px-4 py-14 bg-gray-50 rounded-xl">
       
       {/* Title */}
       <h2 className="text-2xl md:text-3xl font-bold mb-10 text-center text-gray-800">

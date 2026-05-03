@@ -1,7 +1,8 @@
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../context/AuthContext"; 
 import { useNavigate, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useState } from "react";
+import { useEffect } from "react";
 
 import eye from "../assets/eye.png";
 import eyeoff from "../assets/closed-eye.png";
@@ -12,6 +13,12 @@ const Login = () => {
   const location = useLocation();
 
   const [showPassword, setShowPassword] = useState(false);
+
+useEffect(() => {
+  if (location.state?.from === "/contact") {
+    toast.info("Please login to contact us");
+  }
+}, [location]);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -30,7 +37,13 @@ const Login = () => {
     </p>
   </div>
 );
-        navigate(location.state?.from || "/");
+  const from = location.state?.from;
+
+if (from === "/contact") {
+  navigate("/"); 
+} else {
+  navigate(from || "/"); 
+}
       })
       
       .catch((err) => {
