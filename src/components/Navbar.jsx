@@ -69,7 +69,7 @@ const Navbar = () => {
               </NavLink>
             </>
           ) : (
-            // ✅ Profile Image + Dropdown (Desktop)
+            
             <div className="relative" ref={menuRef}>
 
               <img
@@ -84,7 +84,7 @@ const Navbar = () => {
                   <NavLink
                     to="/profile"
                     onClick={() => setOpen(false)}
-                    className="block px-4 py-2 hover:bg-gray-100"
+                    className="block px-4 py-2 hover:bg-green-700 hover:text-white cursor-pointer transition"
                   >
                     My Profile
                   </NavLink>
@@ -94,7 +94,8 @@ const Navbar = () => {
                       logout();
                       setOpen(false);
                     }}
-                    className="block w-full text-left px-4 py-2 hover:bg-gray-100 text-red-500"
+                    className="w-full text-left px-4 py-2 text-red-600 
+  hover:bg-red-700 hover:text-white cursor-pointer transition duration-200"
                   >
                     Logout
                   </button>
@@ -113,7 +114,11 @@ const Navbar = () => {
             onClick={() => setOpen(!open)}
             className="text-2xl"
           >
-            ⋮
+            <img
+    src="/images/dot.png"
+    alt="menu"
+    className="w-6 h-6"
+  />
           </button>
 
           {open && (
@@ -122,7 +127,7 @@ const Navbar = () => {
               <NavLink
                 to="/"
                 onClick={() => setOpen(false)}
-                className="block px-4 py-2 hover:bg-gray-100"
+                className="block px-4 py-2 hover:bg-green-700 hover:text-white cursor-pointer transition"
               >
                 Home
               </NavLink>
@@ -130,7 +135,7 @@ const Navbar = () => {
               <NavLink
                 to="/animals"
                 onClick={() => setOpen(false)}
-                className="block px-4 py-2 hover:bg-gray-100"
+                className="block px-4 py-2 hover:bg-green-700 hover:text-white cursor-pointer transition"
               >
                 Animals
               </NavLink>
@@ -140,7 +145,7 @@ const Navbar = () => {
                   <NavLink
                     to="/login"
                     onClick={() => setOpen(false)}
-                    className="block px-4 py-2 hover:bg-gray-100"
+                    className="block px-4 py-2 hover:bg-green-700 hover:text-white cursor-pointer transition"
                   >
                     Login
                   </NavLink>
@@ -148,7 +153,7 @@ const Navbar = () => {
                   <NavLink
                     to="/register"
                     onClick={() => setOpen(false)}
-                    className="block px-4 py-2 hover:bg-gray-100"
+                    className="block px-4 py-2 hover:bg-green-700 hover:text-white cursor-pointer transition"
                   >
                     Register
                   </NavLink>
@@ -158,7 +163,7 @@ const Navbar = () => {
                   <NavLink
                     to="/profile"
                     onClick={() => setOpen(false)}
-                    className="block px-4 py-2 hover:bg-gray-100"
+                    className="block px-4 py-2 hover:bg-green-700 hover:text-white cursor-pointer transition"
                   >
                     My Profile
                   </NavLink>
@@ -168,7 +173,8 @@ const Navbar = () => {
                       logout();
                       setOpen(false);
                     }}
-                    className="w-full text-left px-4 py-2 hover:bg-gray-100 text-red-500"
+                    className="w-full text-left px-4 py-2 text-red-600 
+  hover:bg-red-700 hover:text-white cursor-pointer transition duration-200"
                   >
                     Logout
                   </button>
