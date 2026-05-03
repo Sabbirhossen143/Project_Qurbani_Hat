@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import hero from "../assets/hero.png";
 
 const Hero = () => {
   return (
@@ -21,9 +22,9 @@ const Hero = () => {
       </div>
 
       <img
-        src="https://i.postimg.cc/8P3d9YhS/cow.jpg"
+        src={hero}
         alt="cow"
-        className="rounded-lg"
+        className="w-full transition-transform duration-500 ease-in-out hover:scale-105"
       />
     </div>
   );

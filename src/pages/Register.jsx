@@ -19,14 +19,14 @@ const Register = () => {
   const photo = e.target.photo.value;
   const password = e.target.password.value;
 
-  // ✅ Manual validation
+  
   if (!email.includes("@")) {
-    toast.error("❌ Please enter a valid email");
+    toast.error("Please enter a valid email");
     return;
   }
 
   if (password.length < 6) {
-    toast.error("❌ Password must be at least 6 characters");
+    toast.error("Password must be at least 6 characters");
     return;
   }
 

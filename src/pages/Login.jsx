@@ -7,13 +7,12 @@ import eye from "../assets/eye.png";
 import eyeoff from "../assets/closed-eye.png";
 
 const Login = () => {
-  const { loginUser, googleLogin } = useAuth();
+  const { loginUser } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
   const [showPassword, setShowPassword] = useState(false);
 
-  // ✅ Email login
   const handleLogin = (e) => {
     e.preventDefault();
 
@@ -35,7 +34,7 @@ const Login = () => {
       })
       
       .catch((err) => {
-  console.log(err.code); // 👈 check real error
+  console.log(err.code); 
 
   if (err.code === "auth/invalid-credential") {
     toast.error(" Email or Password is incorrect");
@@ -47,23 +46,23 @@ const Login = () => {
 
   };
 
-  // ✅ Google login (FIXED POSITION)
-  const handleGoogle = () => {
-    googleLogin()
-      .then((res) => {
-        const name = res.user.displayName || "User";
-        toast.success(
-  <div>
-    <p className="font-semibold text-center">Hi, {name}.</p>
-    <p className="text-sm text-gray-600">
-      Welcome to our Qurbani Hat !
-    </p>
-  </div>
-);
-        navigate(location.state?.from || "/");
-      })
-      .catch((err) => toast.error(err.message));
-  };
+  // Google login 
+//   const handleGoogle = () => {
+//     googleLogin()
+//       .then((res) => {
+//         const name = res.user.displayName || "User";
+//         toast.success(
+//   <div>
+//     <p className="font-semibold text-center">Hi, {name}.</p>
+//     <p className="text-sm text-gray-600">
+//       Welcome to our Qurbani Hat !
+//     </p>
+//   </div>
+// );
+//         navigate(location.state?.from || "/");
+//       })
+//       .catch((err) => toast.error(err.message));
+//   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
@@ -114,7 +113,7 @@ const Login = () => {
 
         <button
           type="button"
-          onClick={handleGoogle}
+          onClick={() => toast.info("Google login is disabled for now")}
           className="w-full flex items-center justify-center gap-2 border py-3 rounded-lg hover:bg-gray-50 transition"
         >
           <img
