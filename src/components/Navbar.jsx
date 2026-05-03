@@ -1,5 +1,5 @@
 import { NavLink, Link } from "react-router-dom";
-import { useAuth } from "../context/AuthContext"; 
+import { useAuth } from "../context/AuthContext";
 import { useState, useRef, useEffect } from "react";
 import logo from "../assets/logo.png";
 
@@ -8,83 +8,97 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const menuRef = useRef();
 
+  // Close dropdown on outside click
   useEffect(() => {
     const handler = (e) => {
       if (!menuRef.current?.contains(e.target)) {
         setOpen(false);
       }
     };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
+    document.addEventListener("click", handler);
+    return () => document.removeEventListener("click", handler);
   }, []);
 
   return (
-    <div className="bg-white shadow-sm">
-      <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+    <div className="bg-white shadow-sm sticky top-0 z-50">
+      <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between flex-wrap gap-2">
 
         {/* Logo */}
         <Link to="/">
           <img src={logo} className="h-10" />
         </Link>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-6 text-lg">
+        {/* Menu */}
+        <div className="flex items-center gap-3 md:gap-6 text-sm md:text-lg flex-wrap">
 
-          <NavLink to="/" className={({ isActive }) =>
-            `px-2 py-1 rounded-md transition-all duration-200 
-            ${isActive
-              ? "bg-green-700 text-white shadow-sm"
-              : "text-gray-700 hover:bg-green-100 hover:scale-105"}`
-          }>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `px-2 py-1 rounded-md transition 
+              ${isActive
+                ? "bg-green-700 text-white"
+                : "text-gray-700 hover:bg-green-100"}`
+            }
+          >
             Home
           </NavLink>
 
-          <NavLink to="/animals" className={({ isActive }) =>
-            `px-2 py-1 rounded-md transition-all duration-200 
-            ${isActive
-              ? "bg-green-700 text-white shadow-sm"
-              : "text-gray-700 hover:bg-green-100 hover:scale-105"}`
-          }>
+          <NavLink
+            to="/animals"
+            className={({ isActive }) =>
+              `px-2 py-1 rounded-md transition 
+              ${isActive
+                ? "bg-green-700 text-white"
+                : "text-gray-700 hover:bg-green-100"}`
+            }
+          >
             Animals
           </NavLink>
 
           {!user ? (
             <>
-              <NavLink to="/login" className={({ isActive }) =>
-                `px-2 py-1 rounded-md transition-all duration-200 
-                ${isActive
-                  ? "bg-green-700 text-white shadow-sm"
-                  : "text-gray-700 hover:bg-green-100 hover:scale-105"}`
-              }>
+              <NavLink
+                to="/login"
+                className={({ isActive }) =>
+                  `px-2 py-1 rounded-md transition 
+                  ${isActive
+                    ? "bg-green-700 text-white"
+                    : "text-gray-700 hover:bg-green-100"}`
+                }
+              >
                 Login
               </NavLink>
 
-              <NavLink to="/register" className={({ isActive }) =>
-                `px-2 py-1 rounded-md transition-all duration-200
-                ${isActive
-                  ? "bg-green-600 text-white"
-                  : "text-gray-700 hover:bg-green-100 hover:scale-105"}`
-              }>
+              <NavLink
+                to="/register"
+                className={({ isActive }) =>
+                  `px-2 py-1 rounded-md transition 
+                  ${isActive
+                    ? "bg-green-600 text-white"
+                    : "text-gray-700 hover:bg-green-100"}`
+                }
+              >
                 Register
               </NavLink>
             </>
           ) : (
-            
             <div className="relative" ref={menuRef}>
 
+              {/* Profile Image */}
               <img
                 src={user.photoURL || "https://i.ibb.co/2kR5zqK/user.png"}
                 className="w-9 h-9 rounded-full cursor-pointer border"
                 onClick={() => setOpen(!open)}
               />
 
+              {/* Dropdown */}
               {open && (
                 <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg border py-2 z-50 text-sm">
 
                   <NavLink
                     to="/profile"
                     onClick={() => setOpen(false)}
-                    className="block px-4 py-2 hover:bg-green-700 hover:text-white cursor-pointer transition"
+                    className="block px-4 py-2 hover:bg-green-600 hover:text-white transition"
                   >
                     My Profile
                   </NavLink>
@@ -94,93 +108,13 @@ const Navbar = () => {
                       logout();
                       setOpen(false);
                     }}
-                    className="w-full text-left px-4 py-2 text-red-600 
-  hover:bg-red-700 hover:text-white cursor-pointer transition duration-200"
+                    className="w-full text-left px-4 py-2 text-red-600 hover:bg-red-700 hover:text-white transition"
                   >
                     Logout
                   </button>
 
                 </div>
               )}
-            </div>
-          )}
-
-        </div>
-
-        {/* Mobile Menu */}
-        <div className="md:hidden relative" ref={menuRef}>
-
-          <button
-            onClick={() => setOpen(!open)}
-            className="text-2xl"
-          >
-            <img
-    src="/images/dot.png"
-    alt="menu"
-    className="w-6 h-6"
-  />
-          </button>
-
-          {open && (
-            <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg border py-2 z-50 text-sm shadow-lg hover:shadow-xl transition">
-
-              <NavLink
-                to="/"
-                onClick={() => setOpen(false)}
-                className="block px-4 py-2 hover:bg-green-700 hover:text-white cursor-pointer transition"
-              >
-                Home
-              </NavLink>
-
-              <NavLink
-                to="/animals"
-                onClick={() => setOpen(false)}
-                className="block px-4 py-2 hover:bg-green-700 hover:text-white cursor-pointer transition"
-              >
-                Animals
-              </NavLink>
-
-              {!user ? (
-                <>
-                  <NavLink
-                    to="/login"
-                    onClick={() => setOpen(false)}
-                    className="block px-4 py-2 hover:bg-green-700 hover:text-white cursor-pointer transition"
-                  >
-                    Login
-                  </NavLink>
-
-                  <NavLink
-                    to="/register"
-                    onClick={() => setOpen(false)}
-                    className="block px-4 py-2 hover:bg-green-700 hover:text-white cursor-pointer transition"
-                  >
-                    Register
-                  </NavLink>
-                </>
-              ) : (
-                <>
-                  <NavLink
-                    to="/profile"
-                    onClick={() => setOpen(false)}
-                    className="block px-4 py-2 hover:bg-green-700 hover:text-white cursor-pointer transition"
-                  >
-                    My Profile
-                  </NavLink>
-
-                  <button
-                    onClick={() => {
-                      logout();
-                      setOpen(false);
-                    }}
-                    className="w-full text-left px-4 py-2 text-red-600 
-  hover:bg-red-700 hover:text-white cursor-pointer transition duration-200"
-                  >
-                    Logout
-                  </button>
-                </>
-              )}
-
             </div>
           )}
         </div>
