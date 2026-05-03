@@ -1,19 +1,48 @@
-const breeds = [
-  { name: "Sahiwal Cow", type: "Cow" },
-  { name: "Deshi Cow", type: "Cow" },
-  { name: "Black Bengal Goat", type: "Goat" },
-];
+import { useEffect, useState } from "react";
 
 const TopBreeds = () => {
-  return (
-    <div className="max-w-6xl mx-auto px-4 py-10">
-      <h2 className="text-xl font-semibold mb-6">Top Breeds</h2>
+  const [breeds, setBreeds] = useState([]);
 
-      <div className="grid md:grid-cols-3 gap-4">
+  useEffect(() => {
+    fetch("/animals.json")
+      .then((res) => res.json())
+      .then((data) => {
+        
+        const uniqueBreeds = [
+          ...new Set(data.map((animal) => animal.breed)),
+        ];
+
+        // convert into object format
+        const formatted = uniqueBreeds.map((breed) => ({
+          name: breed,
+          type: "Cow",
+        }));
+
+        setBreeds(formatted);
+      });
+  }, []);
+
+  return (
+    <div className="max-w-6xl mx-auto px-4 py-14">
+      
+      <h2 className="text-2xl md:text-3xl font-bold mb-10 text-center text-gray-800">
+        Top Breeds
+      </h2>
+
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
         {breeds.map((b, i) => (
-          <div key={i} className="bg-white p-4 rounded shadow-sm">
-            <h3 className="font-medium">{b.name}</h3>
-            <p className="text-sm text-gray-500">{b.type}</p>
+          <div
+            key={i}
+            className="bg-white p-6 rounded-2xl shadow-md 
+            hover:shadow-xl transition duration-300 hover:-translate-y-1 border"
+          >
+            <h3 className="text-lg font-semibold text-gray-800 mb-2">
+              {b.name}
+            </h3>
+
+            <span className="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full">
+              {b.type}
+            </span>
           </div>
         ))}
       </div>
