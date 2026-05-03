@@ -1,0 +1,80 @@
+[
+  {
+    "id": 1,
+    "name": "Deshi Shahi Cow",
+    "type": "Cow",
+    "breed": "Local Deshi",
+    "price": 120000,
+    "weight": 280,
+    "age": 3,
+    "location": "Bogura",
+    "description": "Healthy deshi cow suitable for Qurbani. Well fed with natural খাবার.",
+    "image": "https://i.postimg.cc/8P3d9YhS/cow.jpg",
+    "category": "Large Animal"
+  },
+  {
+    "id": 2,
+    "name": "Sahiwal Cow",
+    "type": "Cow",
+    "breed": "Sahiwal",
+    "price": 150000,
+    "weight": 320,
+    "age": 4,
+    "location": "Rajshahi",
+    "description": "Strong and healthy cow, ideal for Qurbani.",
+    "image": "https://i.postimg.cc/8P3d9YhS/cow.jpg",
+    "category": "Large Animal"
+  },
+  {
+    "id": 3,
+    "name": "Friesian Cow",
+    "type": "Cow",
+    "breed": "Holstein Friesian",
+    "price": 180000,
+    "weight": 350,
+    "age": 5,
+    "location": "Dhaka",
+    "description": "High-quality breed with excellent health condition.",
+    "image": "https://i.postimg.cc/8P3d9YhS/cow.jpg",
+    "category": "Large Animal"
+  },
+  {
+    "id": 4,
+    "name": "Black Bengal Goat",
+    "type": "Goat",
+    "breed": "Black Bengal",
+    "price": 25000,
+    "weight": 35,
+    "age": 2,
+    "location": "Khulna",
+    "description": "Popular goat breed, perfect for Qurbani.",
+    "image": "https://i.postimg.cc/8P3d9YhS/cow.jpg",
+    "category": "Small Animal"
+  },
+  {
+    "id": 5,
+    "name": "Jamunapari Goat",
+    "type": "Goat",
+    "breed": "Jamunapari",
+    "price": 30000,
+    "weight": 40,
+    "age": 2,
+    "location": "Mymensingh",
+    "description": "Large-sized goat with good meat quality.",
+    "image": "https://i.postimg.cc/8P3d9YhS/cow.jpg",
+    "category": "Small Animal"
+  },
+  {
+    "id": 6,
+    "name": "Local Goat",
+    "type": "Goat",
+    "breed": "Deshi",
+    "price": 18000,
+    "weight": 28,
+    "age": 1.5,
+    "location": "Chattogram",
+    "description": "Healthy local goat, budget-friendly option.",
+    "image": "https://i.postimg.cc/8P3d9YhS/cow.jpg",
+    "category": "Small Animal"
+  }
+]
