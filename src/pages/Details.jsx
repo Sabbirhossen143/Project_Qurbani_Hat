@@ -6,6 +6,7 @@ import { toast, ToastContainer } from "react-toastify";
 const Details = () => {
   const { id } = useParams();
   const [animal, setAnimal] = useState(null);
+  const [showImage, setShowImage] = useState(false); // ✅ moved here
 
   useEffect(() => {
     fetch("/animals.json")
@@ -30,8 +31,15 @@ const Details = () => {
     <>
       <div className="max-w-5xl mx-auto px-4 py-10">
         <div className="grid md:grid-cols-2 gap-8">
-          <img src={animal.image} className="rounded-lg" />
 
+          {/* Image */}
+          <img
+            src={animal.image}
+            className="rounded-lg cursor-pointer hover:scale-105 transition"
+            onClick={() => setShowImage(true)}
+          />
+
+          {/* Info */}
           <div>
             <h2 className="text-2xl font-semibold">{animal.name}</h2>
             <p className="text-green-700 text-xl mt-2">৳ {animal.price}</p>
@@ -61,6 +69,19 @@ const Details = () => {
           </button>
         </form>
       </div>
+
+      {/* ✅ IMAGE POPUP */}
+      {showImage && (
+        <div
+          className="fixed inset-0 bg-black/70 flex items-center justify-center z-50"
+          onClick={() => setShowImage(false)}
+        >
+          <img
+            src={animal.image}
+            className="max-w-[90%] max-h-[90%] rounded-lg shadow-lg"
+          />
+        </div>
+      )}
 
       <ToastContainer />
       <Footer />
