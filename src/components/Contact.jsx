@@ -19,8 +19,7 @@ const Contact = () => {
       return;
     }
 
-    
-    toast.success("Message sent successfully!");
+    toast.success("Thanks! We’ll get back to you soon.");
 
     form.reset(); 
   };

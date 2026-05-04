@@ -1,16 +1,88 @@
-# React + Vite
+# 🐄 QurbaniHat
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and responsive web application to explore and purchase Qurbani animals easily.
+Users can browse animals, filter by category, sort by price, and contact the seller securely.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🌐 Live Site
 
-## React Compiler
+👉 https://project-qurbani-hat.vercel.app/
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 📌 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* 🐮 Browse all available animals
+* 🏷️ Category filter (dynamic badges)
+* ↕️ Sort animals by price (Low → High / High → Low / Default)
+* 🔍 Detailed animal information page
+* 📝 Booking & contact form with success toast
+* 🔐 Firebase authentication (Email & Google login)
+* 👤 User profile management
+* 📱 Fully responsive (mobile, tablet, desktop)
+* 🎨 Clean and modern UI design
+
+---
+
+## 🛠️ Technologies Used
+
+* React.js
+* Tailwind CSS
+* Firebase Authentication
+* React Router DOM
+* React Toastify
+* Vite
+
+---
+
+
+## ⚙️ Installation & Setup
+
+1. Clone the repository:
+
+```
+git clone https://github.com/Sabbirhossen143/Project_Qurbani_Hat
+```
+
+2. Go to project folder:
+
+```
+cd your-repo
+```
+
+3. Install dependencies:
+
+```
+npm install
+```
+
+4. Run development server:
+
+```
+npm run dev
+```
+
+---
+
+## 🔥 Build for Production
+
+```
+npm run build
+```
+
+---
+
+## 🚀 Deployment
+
+This project is deployed on **Vercel**.
+
+### 🔹 For deployment:
+
+* Connect GitHub repo to Vercel
+* Or upload `dist` folder manually
+
+
+## ⭐ Support
+
+If you like this project, please give it a ⭐ on GitHub!

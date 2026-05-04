@@ -31,8 +31,11 @@ useEffect(() => {
         const name = res.user.displayName || "User";
         toast.success(
   <div>
-    <p className="font-semibold text-center">Hi, {name}.</p>
-    <p className="text-sm text-gray-600">
+    <p className="font-semibold text-center">
+  <span className="text-gray-700">Hi, </span>
+  <span className="text-green-600">{name}</span>
+</p>
+    <p className="text-sm text-gray-700">
       Welcome to our Qurbani Hat !
     </p>
   </div>
