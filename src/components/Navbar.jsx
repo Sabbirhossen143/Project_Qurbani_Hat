@@ -52,7 +52,7 @@ const Navbar = () => {
                 : "text-gray-700 hover:bg-green-100"}`
             }
           >
-            Animals
+            All Animals
           </NavLink>
 
           {!user ? (
