@@ -48,26 +48,32 @@ const Animals = () => {
 
   return (
     <>
-      {/* 🔥 BANNER */}
-      <div className="relative w-full h-52 md:h-72 flex items-center justify-center overflow-hidden bg-gray-100">
-        <img
-          src="/images/banner.png"
-          alt="banner"
-          className="absolute inset-0 w-full h-full object-contain bg-gray-100"
-        />
-        <div className="absolute inset-0 bg-black/20"></div>
+      <div className="py-8">
 
-        <div className="relative text-center">
-          <h1 className="text-xl md:text-4xl font-bold text-green-900">
-            Choose Your Qurbani Animal
-          </h1>
-          <p className="text-sm md:text-lg text-gray-700 mt-2">
-            Find the best cow for your sacrifice
-          </p>
-        </div>
+  <div className="max-w-6xl mx-auto px-4">
+
+    <div className="bg-gradient-to-r from-green-50 to-green-100 rounded-xl py-12 md:py-16">
+
+      <div className="text-center">
+
+        <h1 className="font-bold text-green-900 
+        text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+          Choose Your Qurbani Animal
+        </h1>
+
+        <p className="mt-3 text-gray-700 
+        text-sm sm:text-base md:text-lg max-w-xl mx-auto">
+          Find the best cow for your sacrifice with trusted sellers and fair prices.
+        </p>
+
       </div>
 
-      {/* 🔥 CATEGORY ROW */}
+    </div>
+
+  </div>
+
+</div>
+
       <div className="max-w-6xl mx-auto px-4 mt-6">
         <div className="flex flex-wrap gap-3 justify-center md:justify-start">
           {types.map((type, i) => (
